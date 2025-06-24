@@ -1,6 +1,6 @@
 export const config = {
 	site: {
-		url: "https://diary.vercel.app",
+		url: "https://diary365.vercel.app",
 		OG: {
 			title: "",
 			description: "",

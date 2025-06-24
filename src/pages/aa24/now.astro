@@ -1,0 +1,73 @@
+---
+import Layout from "@/layouts/Layout.astro"
+const currentDate = new Date()
+
+const day = currentDate.getDate()
+const monthNames = [
+	"января",
+	"февраля",
+	"марта",
+	"апреля",
+	"мая",
+	"июня",
+	"июля",
+	"августа",
+	"сентября",
+	"октября",
+	"ноября",
+	"декабря",
+]
+const month = monthNames[currentDate.getMonth()]
+const formattedDate = `${day} ${month}`
+---
+
+<Layout
+	title={`Размышления Я и АА 24 часа на сегодня — ${formattedDate}`}
+	description={"Размышления АН"}
+>
+	<input id="dateInput" type="date" value="" class="hidden" />
+	<script is:inline>
+		// JS для автоматического выбора и перехода
+		window.onload = function () {
+			const currentDate = new Date()
+			const currentDay = ("0" + currentDate.getDate()).slice(-2)
+			const currentMonth = ("0" + (currentDate.getMonth() + 1)).slice(-2)
+			const currentYear = currentDate.getFullYear()
+
+			const dateInput = document.getElementById("dateInput")
+			dateInput.value = currentYear + "-" + currentMonth + "-" + currentDay
+
+			const event = new Event("change")
+			dateInput.dispatchEvent(event)
+		}
+
+		document.getElementById("dateInput").onchange = function () {
+			const enteredDate = new Date(this.value)
+			const enteredDay = ("0" + enteredDate.getDate()).slice(-2)
+			const enteredMonth = ("0" + (enteredDate.getMonth() + 1)).slice(-2)
+
+			const monthNames = [
+				"january",
+				"february",
+				"march",
+				"april",
+				"may",
+				"june",
+				"july",
+				"august",
+				"september",
+				"october",
+				"november",
+				"december",
+			]
+
+			const month = monthNames[enteredDate.getMonth()]
+			const reflection = "aa24"
+
+			const thinkUrl = `/${reflection}/${month}/daily_`
+			const resultLink = thinkUrl + enteredDay + "-" + enteredMonth
+
+			window.location.href = resultLink
+		}
+	</script>
+</Layout>

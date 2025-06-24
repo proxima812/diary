@@ -27,19 +27,36 @@ export const books = [
 	"🟡 Доктор Боб и славные старожилы",
 ]
 
-
 export const navigation = [
 	{
-		label: "Анонимные Алкоголики",
+		label: "АА",
 		href: "/aa",
 		icon: "mdi:progress-pencil",
-		style: "",
 	},
 	{
-		label: "Анонимные Наркоманы",
+		label: "Я и АА 24 часа",
+		href: "/aa24",
+		icon: "mdi:progress-pencil",
+	},
+	{
+		label: "АН",
 		href: "/an",
 		icon: "mdi:progress-pencil",
-		style: "",
+	},
+	{
+		label: "АА День за днем",
+		href: "/aadays",
+		icon: "mdi:progress-pencil",
+	},
+	{
+		label: "Ал-Анон День за Днем",
+		href: "/alanon",
+		icon: "mdi:progress-pencil",
+	},
+	{
+		label: "Ал-Анон Мужество Меняться",
+		href: "/alanonmm",
+		icon: "mdi:progress-pencil",
 	},
 
 	// {
@@ -62,10 +79,54 @@ export const navigation_footer = [
 				style: "underline underline-offset-4 text-blue-500",
 			},
 			{
+				label: "Я и АА 24 часа",
+				href: "/aa24",
+				icon: "mdi:progress-pencil",
+				style: "underline underline-offset-4 text-blue-500",
+			},
+			{
 				label: "Анонимные Наркоманы",
 				href: "/an",
 				icon: "mdi:progress-pencil",
 				style: "underline underline-offset-4 text-blue-500",
+			},
+			{
+				label: "АА День за днем",
+				href: "/aadays",
+				icon: "mdi:progress-pencil",
+				style: "underline underline-offset-4 text-blue-500",
+			},
+			{
+				label: "Ал-Анон День за Днем",
+				href: "/alanon",
+				icon: "mdi:progress-pencil",
+				style: "underline underline-offset-4 text-blue-500",
+			},
+			{
+				label: "Ал-Анон Мужество Меняться",
+				href: "/alanonmm",
+				icon: "mdi:progress-pencil",
+				style: "underline underline-offset-4 text-blue-500",
+			},
+
+			// {
+			// 	label: "Ссылка1",
+			// 	href: "#",
+			// 	target: "_blank",
+			// 	icon: "mdi:progress-pencil",
+			// 	style: "",
+			// },
+		],
+	},
+	{
+		category: "Контакты",
+		colunm2: [
+			{
+				label: "Разработчик",
+				href: "https://t.me/legion_free",
+				target: "_blank",
+				icon: "mdi:telegram",
+				style: "underline underline-offset-4 text-sky-500",
 			},
 			// {
 			// 	label: "Ссылка1",
@@ -76,56 +137,45 @@ export const navigation_footer = [
 			// },
 		],
 	},
-	// {
-	// 	category: "Категория 2",
-	// 	colunm2: [
-	// 		{
-	// 			label: "Ссылка1",
-	// 			href: "#",
-	// 			target: "_blank",
-	// 			icon: "mdi:progress-pencil",
-	// 			style: "",
-	// 		},
-	// 		{
-	// 			label: "Ссылка1",
-	// 			href: "#",
-	// 			target: "_blank",
-	// 			icon: "mdi:progress-pencil",
-	// 			style: "underline-offset-4 text-blue-500 underline",
-	// 		},
-	// 		// {
-	// 		// 	label: "Ссылка1",
-	// 		// 	href: "#",
-	// 		// 	target: "_blank",
-	// 		// 	icon: "mdi:progress-pencil",
-	// 		// 	style: "",
-	// 		// },
-	// 	],
-	// },
-	// {
-	// 	category: "Категория 3",
-	// 	colunm3: [
-	// 		{
-	// 			label: "Ссылка1",
-	// 			href: "#",
-	// 			target: "_blank",
-	// 			icon: "mdi:progress-pencil",
-	// 			style: "",
-	// 		},
-	// 		{
-	// 			label: "Ссылка1",
-	// 			href: "#",
-	// 			target: "_blank",
-	// 			icon: "mdi:progress-pencil",
-	// 			style: "",
-	// 		},
-	// 		// {
-	// 		// 	label: "Ссылка1",
-	// 		// 	href: "#",
-	// 		// 	target: "_blank",
-	// 		// 	icon: "mdi:progress-pencil",
-	// 		// 	style: "",
-	// 		// },
-	// 	],
-	// },
+	{
+		category: "Прочее проекты",
+		colunm3: [
+			{
+				label: "UnitOne - 12 шагов",
+				href: "https://unitone.vercel.app/",
+				target: "_blank",
+				icon: "mdi:web",
+				style: "underline underline-offset-4 text-blue-600",
+			},
+			{
+				label: "Список сообществ",
+				href: "https://unitone.vercel.app/communities",
+				target: "_blank",
+				icon: "mdi:web",
+				style: "underline underline-offset-4 text-blue-600",
+			},
+			{
+				label: "Сообщества по категориям",
+				href: "https://unitone.vercel.app/finder",
+				target: "_blank",
+				icon: "mdi:web",
+				style: "underline underline-offset-4 text-blue-600",
+			},
+			{
+				label: "База знаний - 12 шагов",
+				href: "https://t.me/all_12steps",
+				target: "_blank",
+				icon: "mdi:telegram",
+				style: "underline underline-offset-4 text-sky-500",
+			},
+
+			// {
+			// 	label: "Ссылка1",
+			// 	href: "#",
+			// 	target: "_blank",
+			// 	icon: "mdi:progress-pencil",
+			// 	style: "",
+			// },
+		],
+	},
 ]

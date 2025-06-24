@@ -15,7 +15,11 @@ export default defineConfig({
 	redirects: {
 		"/": "/aa",
 		"/aa": "/aa/now",
+		"/aadays": "/aadays/now",
+		"/alanon": "/alanon/now",
+		"/aa24": "/aa24/now",
 		"/an": "/an/now",
+		"/alanonmm": "/alanonmm /now",
 	},
 	prefetch: {
 		defaultStrategy: "viewport",
