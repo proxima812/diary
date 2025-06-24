@@ -19,7 +19,7 @@ export default defineConfig({
 		"/alanon": "/alanon/now",
 		"/aa24": "/aa24/now",
 		"/an": "/an/now",
-		"/alanonmm": "/alanonmm /now",
+		"/alanonmm": "/alanonmm/now",
 	},
 	prefetch: {
 		defaultStrategy: "viewport",
