@@ -1,6 +1,7 @@
 ---
 import { aa24hours } from "@/data/reflections/aa24hours"
 import Layout from "@/layouts/Layout.astro"
+import { Icon } from "astro-icon/components"
 import { marked } from "marked"
 
 export async function getStaticPaths() {
@@ -27,7 +28,7 @@ const postData = dayKey ? entry[dayKey] : null
 	title={`Размышления Я и АА 24 часа - ${postData.title}`}
 	description={"Размышления АА "}
 >
-	<main class="flex flex-col gap-12 mx-auto max-w-3xl">
+	<main class="flex flex-col gap-12 mx-auto max-w-4xl">
 		<button
 			id="copyButton"
 			class="bg-gradient-to-tr from-blue-500 to-sky-500 self-end max-w-fit cursor-pointer text-white rounded-md shadow-2xs shadow-blue-100 p-2"
@@ -48,15 +49,30 @@ const postData = dayKey ? entry[dayKey] : null
 			</svg>
 		</button>
 
-		<div>
-			<h1 class="mb-2 text-5xl lg:text-6xl font-bold">{postData.title}</h1>
-			<p id="postDesc">{postData.desc}</p>
+		<div
+			class="rounded-2xl md:mx-0 -mx-5 shadow-[inset_0_0_2px_1px_#ffffff4d] ring-1 ring-black/5"
+		>
+			<div class="rounded-2xl p-2 shadow-md shadow-black/5">
+				<div
+					class="rounded-xl shadow-lg ring-1 ring-black/5 grid grid-cols-1 gap-3 lg:shadow-2xl bg-white p-6 md:p-14"
+				>
+					<div class="mb-8">
+						<h1 class="mb-4 text-[#070738] text-4xl lg:text-6xl font-bold">
+							{postData.title}
+						</h1>
+						<p class="text-blue-900 md:text-base text-sm flex items-center gap-1">
+							<span id="postDesc">{postData.desc}</span>
+						</p>
+					</div>
+
+					<article
+						id="postContent"
+						class={`prose max-w-none prose-heading:text-balance prose-zinc prose-lg xl:prose-xl `}
+						set:html={marked(postData.content)}
+					/>
+				</div>
+			</div>
 		</div>
-		<article
-			id="postContent"
-			class={`prose max-w-none prose-heading:text-balance prose-zinc prose-lg xl:prose-xl `}
-			set:html={marked(postData.content)}
-		/>
 	</main>
 
 	<script is:inline>
