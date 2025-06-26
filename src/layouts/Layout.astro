@@ -28,6 +28,8 @@ const {
 	ogImage,
 	keywords,
 } = Astro.props
+
+Astro.response.headers.set("Cache-Control", "public, max-age=3600")
 ---
 
 <html lang="ru" class="scroll-smooth subpixel-antialiased">

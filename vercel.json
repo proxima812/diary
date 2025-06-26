@@ -1,0 +1,31 @@
+{
+	"headers": [
+		{
+			"source": "/_astro/(.*)",
+			"headers": [
+				{
+					"key": "Cache-Control",
+					"value": "public, max-age=31536000, immutable"
+				}
+			]
+		},
+		{
+			"source": "/(january|february|march|april|may|june|july|august|september|october|november|december)/:day",
+			"headers": [
+				{
+					"key": "Cache-Control",
+					"value": "public, max-age=82800, stale-while-revalidate=3600"
+				}
+			]
+		},
+		{
+			"source": "/",
+			"headers": [
+				{
+					"key": "Cache-Control",
+					"value": "public, max-age=300, stale-while-revalidate=60"
+				}
+			]
+		}
+	]
+}
