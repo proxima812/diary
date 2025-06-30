@@ -13,7 +13,7 @@ export default defineConfig({
 		plugins: [tailwindcss()],
 	},
 	redirects: {
-		"/": "/aa",
+		"/": "/alanon",
 		"/aa": "/aa/now",
 		"/aadays": "/aadays/now",
 		"/alanon": "/alanon/now",

@@ -13,6 +13,7 @@ import { Icon } from "astro-icon/components"
 				target={link.target}
 				class={cn(className, link.style)}
 			>
+				{link.svg && <Fragment set:html={link.svg} />}
 				{link.icon && <Icon name={link.icon} />}
 				<span>{link.label}</span>
 			</a>
