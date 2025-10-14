@@ -1,5 +1,5 @@
 ---
-import Copy from '@/components/Copy.astro'
+import Copy from "@/components/Copy.astro"
 import { aa24hours } from "@/data/reflections/aa24hours"
 import Layout from "@/layouts/Layout.astro"
 import { marked } from "marked"
@@ -35,7 +35,7 @@ const postData = dayKey ? entry[dayKey] : null
 			>
 				Я и АА 24 часа
 			</h3>
-			<Copy/>
+			<Copy />
 		</div>
 
 		<div
@@ -64,7 +64,14 @@ const postData = dayKey ? entry[dayKey] : null
 				</div>
 			</div>
 		</div>
-	</main>
-
-	<script src="@/js/copy.js"></script>
-</Layout>
+		<p
+			class="bg-red-50 text-center border-[0.6px] border-red-200 text-red-700 p-3 rounded-md"
+		>
+			<span>Ошибка-(и) в тексте?</span> - <a
+				class="underline"
+				href="https://t.me/legion_free"
+				target="_blank">Написать</a
+			>
+		</p>
+	</main></Layout
+>
