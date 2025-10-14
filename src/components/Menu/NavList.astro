@@ -15,7 +15,7 @@ import { Icon } from "astro-icon/components"
 			>
 				{link.svg && <Fragment set:html={link.svg} />}
 				{link.icon && <Icon name={link.icon} />}
-				<span>{link.label}</span>
+				<span class="font-medium">{link.label}</span>
 			</a>
 		))
 }

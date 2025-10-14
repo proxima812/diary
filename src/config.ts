@@ -9,7 +9,7 @@ export const config = {
 			site_name: "",
 			// preview
 			defaultImage: "default-ogImage.jpg",
-			keywords: "",
+			keywords: "Ежедневники, ежик аа, ежик ан",
 		},
 		verifications: [
 			{ name_verification: "yandex-verification", content: "" }, // Подтверждение владения сайтом в Яндекс.Вебмастере

@@ -1,0 +1,124 @@
+---
+import Layout from "@/layouts/Layout.astro"
+
+// Названия месяцев
+const monthNames = {
+	january: "Январь",
+	february: "Февраль",
+	march: "Март",
+	april: "Апрель",
+	may: "Май",
+	june: "Июнь",
+	july: "Июль",
+	august: "Август",
+	september: "Сентябрь",
+	october: "Октябрь",
+	november: "Ноябрь",
+	december: "Декабрь",
+}
+
+const holidays = {
+	january: [1, 2, 7], // Новый год, Рождество (в странах, где по православному календарю)
+	february: [23], // День защитника Отечества / “Мужской день” (в некоторых странах)
+	march: [8], // Международный женский день
+	may: [1, 9], // День труда, День Победы
+	june: [12], // День России / праздник независимости (в некоторых странах)
+	august: [30], // День Конституции / день независимости (в некоторых странах)
+	october: [], // можно добавить праздники
+	november: [4], // День народного единства (в России)
+	december: [25, 31], // Рождество (где отмечают 25-го), канун Нового года
+}
+
+// Количество дней в месяце
+const daysInMonth = {
+	january: 31,
+	february: 28,
+	march: 31,
+	april: 30,
+	may: 31,
+	june: 30,
+	july: 31,
+	august: 31,
+	september: 30,
+	october: 31,
+	november: 30,
+	december: 31,
+}
+
+// Функция для вычисления смещения первого дня месяца (0 = понедельник)
+function getFirstDayOffset(month) {
+	const monthIndex = Object.keys(monthNames).indexOf(month)
+	const date = new Date(2025, monthIndex, 1)
+	let offset = date.getDay() // 0 = воскресенье, 1 = понедельник ...
+	return offset === 0 ? 6 : offset - 1 // чтобы неделя начиналась с понедельника
+}
+---
+
+<Layout title="Размышления АА: календарь">
+	<div class="flex flex-col gap-12">
+		{
+			Object.keys(monthNames).map(month => {
+				const totalDays = daysInMonth[month]
+				const firstDayOffset = getFirstDayOffset(month)
+				const cells = []
+				const totalCells = firstDayOffset + totalDays
+				for (let i = 0; i < totalCells; i++) {
+					if (i < firstDayOffset) {
+						cells.push(null)
+					} else {
+						cells.push(i - firstDayOffset + 1)
+					}
+				}
+
+				return (
+					<section>
+						<div class="flex items-center justify-between mb-3 px-1 sm:px-0">
+							<h2 class="text-lg sm:text-xl font-semibold">📅 {monthNames[month]}</h2>
+							<span class="text-xs sm:text-sm text-zinc-500">{totalDays} дней</span>
+						</div>
+
+						{/* сетка с адаптивностью */}
+						<div class="grid grid-cols-7 gap-1 sm:gap-1.5 justify-items-center">
+							{/* заголовки дней недели */}
+							{["Пн", "Вт", "Ср", "Чт", "Пт", "Сб", "Вс"].map(day => (
+								<div class="text-center text-[10px] sm:text-xs text-zinc-500 font-medium mb-1">
+									{day}
+								</div>
+							))}
+
+							{/* ячейки дней */}
+							{cells.map(day => {
+								if (!day) {
+									return <div class="w-[38px] h-[38px] sm:w-[70px] sm:h-[70px]" />
+								}
+
+								const isHoliday = holidays[month]?.includes(day)
+								const dayStr = String(day).padStart(2, "0")
+								const monthIndex = Object.keys(monthNames).indexOf(month) + 1
+								const monthStr = String(monthIndex).padStart(2, "0")
+								const slug = `daily_${dayStr}-${monthStr}`
+
+								return (
+									<a
+										href={`/aa/${month}/${slug}`}
+										class={`w-[38px] h-[38px] sm:w-[70px] sm:h-[70px] flex flex-col items-center justify-center rounded-xl border text-[13px] sm:text-sm transition-all select-none
+											${
+												isHoliday
+													? "bg-purple-50 border-purple-200 text-purple-600 font-semibold "
+													: "bg-white hover:bg-zinc-100 border-zinc-200 text-zinc-800"
+											}`}
+									>
+										<span>{day}</span>
+										{isHoliday && (
+											<div class="mt-[2px] w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full bg-purple-400" />
+										)}
+									</a>
+								)
+							})}
+						</div>
+					</section>
+				)
+			})
+		}
+	</div>
+</Layout>

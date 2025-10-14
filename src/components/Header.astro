@@ -1,5 +1,6 @@
 ---
 import Menu from "@/components/Menu/Menu.astro"
+import { Icon } from "astro-icon/components"
 import Container from "./Container.astro"
 import Logo from "./Logo.astro"
 ---
@@ -10,3 +11,12 @@ import Logo from "./Logo.astro"
 		<Menu />
 	</Container>
 </header>
+<div class="py-3 bg-blue-50">
+	<Container class="flex justify-center">
+		<a
+			href="/calendar"
+			class="text-blue-500 underline underline-offset-4 font-medium flex gap-1 items-center"
+			><Icon name="mdi:cursor-default-click" /><span>Календарь размышлений АА</span></a
+		>
+	</Container>
+</div>
