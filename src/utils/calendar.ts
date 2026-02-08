@@ -6,3 +6,6 @@ export function buildAvailableSlugs(reflections: ReflectionsByMonth) {
 	) as Record<string, string[]>
 }
 
+export function countAvailableEntries(availableSlugs: Record<string, string[]>) {
+	return Object.values(availableSlugs).reduce((total, monthSlugs) => total + monthSlugs.length, 0)
+}

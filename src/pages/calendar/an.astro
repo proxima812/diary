@@ -2,11 +2,18 @@
 import ReflectionCalendar from "@/components/ReflectionCalendar.astro"
 import { an } from "@/data/reflections/an"
 import Layout from "@/layouts/Layout.astro"
-import { buildAvailableSlugs } from "@/utils/calendar"
+import { buildAvailableSlugs, countAvailableEntries } from "@/utils/calendar"
 
 const availableSlugs = buildAvailableSlugs(an)
+const entriesCount = countAvailableEntries(availableSlugs)
+const title = "Календарь размышлений АН"
 ---
 
-<Layout title="Календарь размышлений АН">
-	<ReflectionCalendar basePath="an" availableSlugs={availableSlugs} />
+<Layout title={title}>
+	<ReflectionCalendar
+		basePath="an"
+		title={title}
+		entriesCount={entriesCount}
+		availableSlugs={availableSlugs}
+	/>
 </Layout>

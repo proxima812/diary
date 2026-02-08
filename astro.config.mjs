@@ -1,6 +1,6 @@
 import mdx from "@astrojs/mdx";
-import react from "@astrojs/react";
 import sitemap from "@astrojs/sitemap";
+import svelte from "@astrojs/svelte";
 import tailwindcss from "@tailwindcss/vite";
 import icon from "astro-icon";
 import metaTags from "astro-meta-tags";
@@ -12,19 +12,10 @@ export default defineConfig({
 	vite: {
 		plugins: [tailwindcss()],
 	},
-	redirects: {
-		"/": "/aa/now",
-		"/aa": "/aa/now",
-		"/aadays": "/aadays/now",
-		"/alanon": "/alanon/now",
-		"/aa24": "/aa24/now",
-		"/an": "/an/now",
-		"/alanonmm": "/alanonmm/now",
-	},
 	prefetch: {
 		defaultStrategy: "viewport",
 		prefetchAll: true,
 	},
-	integrations: [mdx(), sitemap(), icon(), metaTags(), react()],
+	integrations: [mdx(), sitemap(), icon(), metaTags(), svelte()],
 	output: "static",
 });

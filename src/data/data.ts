@@ -181,13 +181,6 @@ export const navigation_footer = [
 		category: "Прочее проекты",
 		colunm3: [
 			{
-				label: "UnitOne - 12 шагов",
-				href: "https://unitone.vercel.app/",
-				target: "_blank",
-				icon: "mdi:web",
-				style: "underline underline-offset-4 text-amber-700",
-			},
-			{
 				label: "Список сообществ",
 				href: "https://unitone.vercel.app/communities",
 				target: "_blank",

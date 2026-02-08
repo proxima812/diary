@@ -1,5 +1,6 @@
 ---
 import Copy from "@/components/Copy.astro"
+import SavedPostButton from "@/components/SavedPostButton.svelte"
 import { an } from "@/data/reflections/an"
 import Layout from "@/layouts/Layout.astro"
 import { marked } from "marked"
@@ -32,7 +33,15 @@ const postData = dayKey ? entry[dayKey] : null
 			>
 				Размышления АН
 			</h3>
-			<Copy />
+			<div class="flex items-center gap-2">
+				<SavedPostButton
+					client:load
+					id={`an-${month}-${slug}`}
+					title={postData.title}
+					desc={postData.desc}
+				/>
+				<Copy />
+			</div>
 		</div>
 
 		<div
