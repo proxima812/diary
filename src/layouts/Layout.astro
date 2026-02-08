@@ -1,21 +1,21 @@
 ---
-import Container from "@/components/Container.astro"
-import Footer from "@/components/Footer.astro"
-import Header from "@/components/Header.astro"
-import PwaInstallBanner from "@/components/PwaInstallBanner.svelte"
-import SEO from "@/components/SEO.astro"
-import "@/styles/tailwind.css"
+import Container from "@/components/Container.astro";
+import Footer from "@/components/Footer.astro";
+import Header from "@/components/Header.astro";
+import PwaInstallBanner from "@/components/PwaInstallBanner.svelte";
+import SEO from "@/components/SEO.astro";
+import "@/styles/tailwind.css";
 
 interface Props {
-	title: string
-	description: string
-	datePublished?: string
-	bodyStyle?: string
-	dateModified?: string
-	indexRobots?: string
-	type?: any
-	keywords: string
-	ogImage?: any
+	title: string;
+	description: string;
+	datePublished?: string;
+	bodyStyle?: string;
+	dateModified?: string;
+	indexRobots?: string;
+	type?: any;
+	keywords: string;
+	ogImage?: any;
 }
 
 const {
@@ -28,9 +28,9 @@ const {
 	description,
 	ogImage,
 	keywords,
-} = Astro.props
+} = Astro.props;
 
-Astro.response.headers.set("Cache-Control", "public, max-age=3600")
+Astro.response.headers.set("Cache-Control", "public, max-age=3600");
 ---
 
 <html lang="ru" class="scroll-smooth subpixel-antialiased">
@@ -61,6 +61,15 @@ Astro.response.headers.set("Cache-Control", "public, max-age=3600")
 	<body
 		class={`${bodyStyle || ""} flex min-h-screen flex-col bg-[var(--bg-page)] text-[var(--text-main)]`}
 	>
+		<div class="bg-indigo-50 py-4 w-full text-center">
+			<!--- Компонент Независимый Комитет "Действия" -->
+			<a
+				href="https://t.me/+aXHt2loxo1RjZDcy"
+				target="_blank"
+				class="underline text-blue-500 tracking-normal font-medium"
+				>Проект <b>независимого комитета "Действия"</b></a
+			>
+		</div>
 		<Header />
 		<Container class="py-20">
 			<div class="flex flex-col gap-12">
