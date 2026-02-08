@@ -64,7 +64,7 @@ export const navigation = [
 </svg>`,
 	},
 	{
-		label: "Я и АА 24 часа",
+		label: "Я и АА 24 часа".slice('0', 6),
 		href: "/aa24",
 		// icon: "mdi:book-heart",
 		svg: `<svg width="24" height="15" viewBox="0 0 24 15" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -82,7 +82,7 @@ export const navigation = [
 </svg>`,
 	},
 	{
-		label: "АА День за днем",
+		label: "АА День за днем".slice('0', 7),
 		href: "/aadays",
 		// icon: "mdi:book-heart",
 		svg: `<svg width="24" height="15" viewBox="0 0 24 15" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -100,7 +100,7 @@ export const navigation = [
 </svg>`,
 	},
 	{
-		label: "Ал-Анон День за Днем",
+		label: "Ал-Анон День за Днем" .slice('0', 8),
 		href: "/alanon",
 		// icon: "mdi:book-heart",
 		svg: `<svg width="20" height="17" viewBox="0 0 20 17" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -109,7 +109,7 @@ export const navigation = [
 </svg>`,
 	},
 	{
-		label: "Ал-Анон Мужество Меняться",
+		label: "Ал-Анон Мужество Меняться".slice('0', 8),
 		href: "/alanonmm",
 		// icon: "mdi:book-heart",
 		svg: `<svg width="20" height="17" viewBox="0 0 20 17" fill="none" xmlns="http://www.w3.org/2000/svg">

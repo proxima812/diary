@@ -1,21 +1,23 @@
 ---
-import Menu from "@/components/Menu/Menu.astro"
-import { calendarBooks } from "@/data/calendars"
-import { Icon } from "astro-icon/components"
-import Container from "./Container.astro"
-import Logo from "./Logo.astro"
+import Menu from "@/components/Menu/Menu.astro";
+import BookmarksHeaderLink from "@/components/BookmarksHeaderLink.svelte";
+import { calendarBooks } from "@/data/calendars";
+import { Icon } from "astro-icon/components";
+import Container from "./Container.astro";
+import Logo from "./Logo.astro";
 ---
 
 <header class="py-5 bg-[var(--bg-surface)] border-b border-[var(--border-soft)]">
 	<Container class="flex justify-between items-center gap-x-3">
-		<Logo />
+		<a href="/"><Logo /></a>
 		<Menu />
+		<BookmarksHeaderLink client:only="svelte" />
 	</Container>
 </header>
 <div class="py-3 bg-[#f4ebce] border-y border-[var(--border-soft)]">
 	<Container class="flex flex-wrap items-center justify-center gap-2">
 		{
-			calendarBooks.map(book => (
+			calendarBooks.map((book) => (
 				<a
 					href={book.calendarHref}
 					class="inline-flex items-center gap-1 rounded-full border border-[var(--border-soft)] bg-[var(--bg-surface)] px-3 py-1.5 text-sm text-[var(--text-main)] transition-colors hover:bg-[#efddb3] hover:border-[#c6a15a]"
