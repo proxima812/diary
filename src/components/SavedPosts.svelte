@@ -3,6 +3,7 @@
 
   type SavedItem = {
     id: string;
+    href?: string;
     title: string;
     desc?: string;
     savedAt?: number;
@@ -29,6 +30,17 @@
     items = items.filter((item) => item.id !== id);
     localStorage.setItem("saved-posts", JSON.stringify(items));
     document.dispatchEvent(new Event("saved-posts-changed"));
+  }
+
+  function buildHrefFromId(rawId: string) {
+    const parts = rawId.split("-");
+    if (parts.length < 3) return `/${rawId}`;
+    const [community, month, ...slugParts] = parts;
+    return `/${community}/${month}/${slugParts.join("-")}`;
+  }
+
+  function getPostHref(item: SavedItem) {
+    return item.href || buildHrefFromId(item.id);
   }
 
   function clearAll() {
@@ -66,7 +78,7 @@
           {/if}
           <div class="mt-4 flex items-center gap-3">
             <a
-              href={item.id}
+              href={getPostHref(item)}
               class="text-sm text-[var(--accent)] underline underline-offset-4"
             >
               Читать

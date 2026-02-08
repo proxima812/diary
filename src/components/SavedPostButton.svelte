@@ -21,6 +21,13 @@
     }
   }
 
+  function buildHrefFromId(rawId: string) {
+    const parts = rawId.split("-");
+    if (parts.length < 3) return `/${rawId}`;
+    const [community, month, ...slugParts] = parts;
+    return `/${community}/${month}/${slugParts.join("-")}`;
+  }
+
   function toggleSave() {
     const raw = localStorage.getItem("saved-posts");
     let list = [];
@@ -39,6 +46,7 @@
       : [
           {
             id,
+            href: buildHrefFromId(id),
             title,
             desc,
             savedAt: Date.now(),
