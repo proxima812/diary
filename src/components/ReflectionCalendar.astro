@@ -1,0 +1,132 @@
+---
+const { basePath, availableSlugs = {} } = Astro.props
+
+const monthNames = {
+	january: "Январь",
+	february: "Февраль",
+	march: "Март",
+	april: "Апрель",
+	may: "Май",
+	june: "Июнь",
+	july: "Июль",
+	august: "Август",
+	september: "Сентябрь",
+	october: "Октябрь",
+	november: "Ноябрь",
+	december: "Декабрь",
+}
+
+const holidays = {
+	january: [1, 2, 7],
+	february: [23],
+	march: [8],
+	may: [1, 9],
+	june: [12],
+	august: [30],
+	october: [],
+	november: [4],
+	december: [25, 31],
+}
+
+const daysInMonth = {
+	january: 31,
+	february: 29,
+	march: 31,
+	april: 30,
+	may: 31,
+	june: 30,
+	july: 31,
+	august: 31,
+	september: 30,
+	october: 31,
+	november: 30,
+	december: 31,
+}
+
+function getFirstDayOffset(month) {
+	const monthIndex = Object.keys(monthNames).indexOf(month)
+	const date = new Date(2025, monthIndex, 1)
+	let offset = date.getDay()
+	return offset === 0 ? 6 : offset - 1
+}
+---
+
+<section
+	class="rounded-3xl border border-[var(--border-soft)] bg-[var(--bg-surface)] px-3 py-5 shadow-[0_10px_35px_-24px_rgba(133,77,14,0.45)] sm:px-6 sm:py-8"
+>
+	<div class="flex flex-col gap-12">
+	{
+		Object.keys(monthNames).map(month => {
+			const totalDays = daysInMonth[month]
+			const firstDayOffset = getFirstDayOffset(month)
+			const cells = []
+			const totalCells = firstDayOffset + totalDays
+			for (let i = 0; i < totalCells; i++) {
+				if (i < firstDayOffset) {
+					cells.push(null)
+				} else {
+					cells.push(i - firstDayOffset + 1)
+				}
+			}
+
+			return (
+				<section>
+					<div class="flex items-center justify-between mb-3 px-1 sm:px-0">
+						<h2 class="text-lg sm:text-xl font-semibold">📅 {monthNames[month]}</h2>
+						<span class="text-xs sm:text-sm text-zinc-500">{totalDays} дней</span>
+					</div>
+
+					<div class="grid grid-cols-7 gap-1 sm:gap-1.5 justify-items-center">
+						{["Пн", "Вт", "Ср", "Чт", "Пт", "Сб", "Вс"].map(day => (
+							<div class="text-center text-[10px] sm:text-xs text-zinc-500 font-medium mb-1">
+								{day}
+							</div>
+						))}
+
+						{cells.map(day => {
+							if (!day) {
+								return <div class="w-[38px] h-[38px] sm:w-[70px] sm:h-[70px]" />
+							}
+
+							const isHoliday = holidays[month]?.includes(day)
+							const dayStr = String(day).padStart(2, "0")
+							const monthIndex = Object.keys(monthNames).indexOf(month) + 1
+							const monthStr = String(monthIndex).padStart(2, "0")
+							const slug = `daily_${dayStr}-${monthStr}`
+							const monthSlugs = availableSlugs?.[month] || []
+							const hasEntry = monthSlugs.includes(slug)
+
+							if (!hasEntry) {
+								return (
+									<div
+										class="w-[38px] h-[38px] sm:w-[70px] sm:h-[70px] flex items-center justify-center rounded-xl border border-[var(--border-soft)] bg-[#f5ecd4] text-[13px] sm:text-sm text-[var(--text-muted)] cursor-not-allowed select-none"
+									>
+										<span>{day}</span>
+									</div>
+								)
+							}
+
+							return (
+								<a
+									href={`/${basePath}/${month}/${slug}`}
+									class={`w-[38px] h-[38px] sm:w-[70px] sm:h-[70px] flex flex-col items-center justify-center rounded-xl border text-[13px] sm:text-sm transition-all select-none
+										${
+											isHoliday
+												? "bg-[var(--accent-soft)] border-[#d4bc86] text-[var(--accent)] font-semibold hover:bg-[#edd9a8]"
+												: "bg-[var(--bg-page)] hover:bg-[#f2e3ba] border-[var(--border-soft)] text-[var(--text-main)]"
+										}`}
+								>
+									<span>{day}</span>
+									{isHoliday && (
+										<div class="mt-[2px] w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full bg-[#b4832f]" />
+									)}
+								</a>
+							)
+						})}
+					</div>
+				</section>
+			)
+		})
+	}
+	</div>
+</section>

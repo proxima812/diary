@@ -1,0 +1,12 @@
+---
+import ReflectionCalendar from "@/components/ReflectionCalendar.astro"
+import { an } from "@/data/reflections/an"
+import Layout from "@/layouts/Layout.astro"
+import { buildAvailableSlugs } from "@/utils/calendar"
+
+const availableSlugs = buildAvailableSlugs(an)
+---
+
+<Layout title="Календарь размышлений АН">
+	<ReflectionCalendar basePath="an" availableSlugs={availableSlugs} />
+</Layout>

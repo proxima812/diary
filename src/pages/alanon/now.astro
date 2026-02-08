@@ -1,28 +1,9 @@
 ---
 import Layout from "@/layouts/Layout.astro"
-const currentDate = new Date()
-
-const day = currentDate.getDate()
-const monthNames = [
-	"января",
-	"февраля",
-	"марта",
-	"апреля",
-	"мая",
-	"июня",
-	"июля",
-	"августа",
-	"сентября",
-	"октября",
-	"ноября",
-	"декабря",
-]
-const month = monthNames[currentDate.getMonth()]
-const formattedDate = `${day} ${month}`
 ---
 
 <Layout
-	title={`Размышления Ал-Анон День за Днем на сегодня — ${formattedDate}`}
+	title="Размышления Ал-Анон День за Днем на сегодня"
 	description={"Размышления Ал-Анон День за Днем"}
 >
 	<input id="dateInput" type="date" value="" class="hidden" />

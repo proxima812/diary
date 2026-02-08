@@ -2,10 +2,27 @@
 @plugin "@tailwindcss/typography";
 
 @theme {
-  --font-display: font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-display: "Manrope", "Segoe UI", Roboto, Arial, sans-serif;
+  --color-bg-page: #fbf7ec;
+  --color-bg-surface: #fff9e8;
+  --color-accent-soft: #f6e7bd;
+  --color-accent: #b4832f;
+  --color-text-main: #3a311f;
+  --color-text-muted: #7a6948;
+  --color-border-soft: #e7d7ad;
 }
 
 @layer base {
+  :root {
+    --bg-page: var(--color-bg-page);
+    --bg-surface: var(--color-bg-surface);
+    --accent-soft: var(--color-accent-soft);
+    --accent: var(--color-accent);
+    --text-main: var(--color-text-main);
+    --text-muted: var(--color-text-muted);
+    --border-soft: var(--color-border-soft);
+  }
+
   h1,
   h2,
   h3,
@@ -18,7 +35,6 @@
   p {
     @apply text-pretty;
   }
-
 }
 
 @layer components {

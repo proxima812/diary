@@ -46,7 +46,7 @@ Astro.response.headers.set("Cache-Control", "public, max-age=3600")
 		/>
 	</head>
 	<body
-		class={`${bodyStyle || ""} flex min-h-screen flex-col text-zinc-900 bg-[#f7f7f7]`}
+		class={`${bodyStyle || ""} flex min-h-screen flex-col bg-[var(--bg-page)] text-[var(--text-main)]`}
 	>
 		<Header />
 		<Container class="py-20">
