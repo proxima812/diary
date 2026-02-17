@@ -1,0 +1,19 @@
+{
+  "name": "Diary365",
+  "short_name": "Diary365",
+  "description": "Ежедневники и календари сообществ.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#fbf7ec",
+  "theme_color": "#3a311f",
+  "lang": "ru",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

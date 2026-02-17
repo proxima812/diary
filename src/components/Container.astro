@@ -5,9 +5,9 @@ interface Props {
 	class?: string
 }
 
-const { class: className } = Astro.props
+const { class: className, ...props } = Astro.props
 ---
 
-<div class={cn("container flex-1 px-5 mx-auto max-w-6xl", className)}>
+<div class={cn("container flex-1 px-5 mx-auto max-w-6xl", className)} {...props}>
 	<slot />
 </div>

@@ -1,0 +1,132 @@
+{
+	"version": 3,
+	"routes": [
+		{
+			"handle": "filesystem"
+		},
+		{
+			"src": "^/_astro/(.*)$",
+			"headers": {
+				"cache-control": "public, max-age=31536000, immutable"
+			},
+			"continue": true
+		},
+		{
+			"src": "^/_server-islands/([^/]+?)/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/_image/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/404/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/aa/now/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/aa/([^/]+?)/([^/]+?)/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/aa24/now/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/aa24/([^/]+?)/([^/]+?)/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/aadays/now/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/aadays/([^/]+?)/([^/]+?)/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/alanon/now/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/alanon/([^/]+?)/([^/]+?)/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/alanonmm/now/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/alanonmm/([^/]+?)/([^/]+?)/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/an/now/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/an/([^/]+?)/([^/]+?)/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/bookmarks/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/calendar/aa/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/calendar/aa24/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/calendar/aadays/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/calendar/alanon/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/calendar/alanonmm/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/calendar/an/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/calendar/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/disclaimer/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/privacy/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/robots\\.txt/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/terms/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/.*$",
+			"dest": "_render",
+			"status": 404
+		}
+	]
+}

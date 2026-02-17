@@ -9,7 +9,7 @@
 		"paths": {
 			"@/*": ["src/*"]
 		},
-		"jsx": "react-jsx",
-		"jsxImportSource": "react"
+		"jsx": "preserve",
+		"jsxImportSource": "solid-js"
 	}
 }

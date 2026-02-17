@@ -1,9 +1,15 @@
 {
+  "rewrites": [
+    {
+      "source": "/:community(aa|an|aa24|aadays|alanon|alanonmm)/now",
+      "destination": "/api/today?community=:community"
+    }
+  ],
   "headers": [
     {
       "source": "/(aa|an|alanon|alanonmm|aa24|aadays)/now",
       "headers": [
-        { "key": "Cache-Control", "value": "no-store" }
+        { "key": "Cache-Control", "value": "public, max-age=0, s-maxage=300, stale-while-revalidate=60" }
       ]
     },
     {

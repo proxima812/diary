@@ -24,8 +24,8 @@ document.addEventListener("DOMContentLoaded", () => {
 			// легкая вспышка/анимация
 			button.animate(
 				[
-					{ boxShadow: "0 0 0 0 rgba(59,130,246,0.6)" },
-					{ boxShadow: "0 0 20px 6px rgba(59,130,246,0)" },
+					{ boxShadow: "0 0 0 0 rgba(255,255,255,0.32)" },
+					{ boxShadow: "0 0 20px 6px rgba(255,255,255,0)" },
 				],
 				{ duration: 600, easing: "ease-out" },
 			)

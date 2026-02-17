@@ -1,0 +1,19 @@
+---
+import ReflectionCalendar from "@/components/ReflectionCalendar.astro"
+import { aa24hours } from "@/data/reflections/aa24hours"
+import Layout from "@/layouts/Layout.astro"
+import { buildAvailableSlugs, countAvailableEntries } from "@/utils/calendar"
+
+const availableSlugs = buildAvailableSlugs(aa24hours)
+const entriesCount = countAvailableEntries(availableSlugs)
+const title = "Календарь Я и АА 24 часа"
+---
+
+<Layout title={title}>
+	<ReflectionCalendar
+		basePath="aa24"
+		title={title}
+		entriesCount={entriesCount}
+		availableSlugs={availableSlugs}
+	/>
+</Layout>

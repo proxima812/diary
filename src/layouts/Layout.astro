@@ -2,7 +2,7 @@
 import Container from "@/components/Container.astro";
 import Footer from "@/components/Footer.astro";
 import Header from "@/components/Header.astro";
-import PwaInstallBanner from "@/components/PwaInstallBanner.svelte";
+import PwaInstallBanner from "@/components/PwaInstallBanner.astro";
 import SEO from "@/components/SEO.astro";
 import "@/styles/tailwind.css";
 
@@ -14,7 +14,7 @@ interface Props {
 	dateModified?: string;
 	indexRobots?: string;
 	type?: any;
-	keywords: string;
+	keywords?: string;
 	ogImage?: any;
 }
 
@@ -35,6 +35,15 @@ Astro.response.headers.set("Cache-Control", "public, max-age=3600");
 
 <html lang="ru" class="scroll-smooth subpixel-antialiased">
 	<head>
+		<script is:inline>
+			(() => {
+				const key = "theme-preference";
+				const saved = localStorage.getItem(key);
+				const theme =
+					saved || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+				document.documentElement.dataset.theme = theme;
+			})();
+		</script>
 		<SEO
 			title={title}
 			description={description}
@@ -46,10 +55,16 @@ Astro.response.headers.set("Cache-Control", "public, max-age=3600");
 			dateModified={dateModified}
 		/>
 		<link rel="manifest" href="/manifest.webmanifest" />
-		<meta name="theme-color" content="#3a311f" />
+		<meta name="theme-color" content="#0a0a0a" />
 		<meta name="apple-mobile-web-app-capable" content="yes" />
 		<meta name="apple-mobile-web-app-status-bar-style" content="default" />
 		<meta name="apple-mobile-web-app-title" content="Diary365" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap"
+			rel="stylesheet"
+		/>
 		<script is:inline>
 			if ("serviceWorker" in navigator) {
 				window.addEventListener("load", () => {
@@ -61,22 +76,28 @@ Astro.response.headers.set("Cache-Control", "public, max-age=3600");
 	<body
 		class={`${bodyStyle || ""} flex min-h-screen flex-col bg-[var(--bg-page)] text-[var(--text-main)]`}
 	>
-		<div class="bg-indigo-50 py-4 w-full text-center">
-			<!--- Компонент Независимый Комитет "Действия" -->
+		<a
+			href="#main-content"
+			class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-md focus:bg-[var(--bg-elevated)] focus:px-3 focus:py-2"
+		>
+			Перейти к содержимому
+		</a>
+		<div class="w-full border-b border-[var(--border-soft)] bg-[var(--bg-surface)] py-3 text-center text-sm">
 			<a
 				href="https://t.me/+aXHt2loxo1RjZDcy"
 				target="_blank"
-				class="underline text-blue-500 tracking-normal font-medium"
-				>Проект <b>независимого комитета "Действия"</b></a
+				rel="noopener noreferrer"
+				class="font-medium text-[var(--text-main)] underline underline-offset-4"
+				>Проект независимого комитета "Действия"</a
 			>
 		</div>
 		<Header />
-		<Container class="py-20">
+		<Container class="py-10 md:py-14" id="main-content">
 			<div class="flex flex-col gap-12">
 				<slot />
 			</div>
 		</Container>
 		<Footer />
-		<PwaInstallBanner client:only="svelte" />
+		<PwaInstallBanner />
 	</body>
 </html>

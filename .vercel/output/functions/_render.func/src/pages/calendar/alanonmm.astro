@@ -1,0 +1,19 @@
+---
+import ReflectionCalendar from "@/components/ReflectionCalendar.astro"
+import { alanonmm } from "@/data/reflections/alanonmm"
+import Layout from "@/layouts/Layout.astro"
+import { buildAvailableSlugs, countAvailableEntries } from "@/utils/calendar"
+
+const availableSlugs = buildAvailableSlugs(alanonmm)
+const entriesCount = countAvailableEntries(availableSlugs)
+const title = "Календарь Ал-Анон Мужество Меняться"
+---
+
+<Layout title={title}>
+	<ReflectionCalendar
+		basePath="alanonmm"
+		title={title}
+		entriesCount={entriesCount}
+		availableSlugs={availableSlugs}
+	/>
+</Layout>

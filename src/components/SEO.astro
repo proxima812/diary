@@ -2,6 +2,7 @@
 import { config } from "@/config"
 const {
 	datePublished,
+	dateModified,
 	indexRobots,
 	name,
 	author,
@@ -17,9 +18,6 @@ const {
 function formatCanonicalURL(url: string | URL) {
 	const path = url.toString()
 	const hasQueryParams = path.includes("?")
-	if (hasQueryParams) {
-		path.replace(/\/?$/, "")
-	}
 	return path.replace(/\/?$/, hasQueryParams ? "" : "/")
 }
 
@@ -32,25 +30,56 @@ const mainTitle = title || config.site.OG.title
 const mainDescription = description || config.site.OG.description
 const mainAuthor = author || config.site.OG.author
 const mainOGImage = socialImageURL || config.site.OG.defaultImage
+const metaKeywords = keywords || config.site.OG.keywords
 
-function formatDateToYYYYMMDD(date: Date): string {
-	return date.toISOString().substring(0, 10)
-}
+const breadcrumbItems = Astro.url.pathname
+	.split("/")
+	.filter(Boolean)
+	.map((segment, idx, arr) => ({
+		"@type": "ListItem",
+		position: idx + 1,
+		name: decodeURIComponent(segment).replaceAll("-", " "),
+		item: new URL(`/${arr.slice(0, idx + 1).join("/")}`, Astro.site).toString(),
+	}))
 
-const jsonLd = {
-	"@context": "https://schema.org",
-	"@type": type ? "BlogPosting" : "WebPage",
-	headline: mainTitle,
-	description: mainDescription,
-	keywords: keywords || config.site.OG.keywords,
-	author: {
-		"@type": "Person",
-		name: mainAuthor,
+const jsonLd = [
+	{
+		"@context": "https://schema.org",
+		"@type": "WebSite",
+		name: config.site.OG.site_name,
 		url: Astro.site,
+		inLanguage: locale || config.site.OG.locale,
+		potentialAction: {
+			"@type": "SearchAction",
+			target: `${Astro.site}?q={search_term_string}`,
+			"query-input": "required name=search_term_string",
+		},
 	},
-	// datePublished: formatDateToYYYYMMDD(datePublished || new Date()),
-	inLanguage: locale || config.site.OG.locale,
-	// TODO include cover image here
+	{
+		"@context": "https://schema.org",
+		"@type": type ? "BlogPosting" : "WebPage",
+		headline: mainTitle,
+		description: mainDescription,
+		keywords: metaKeywords,
+		author: {
+			"@type": "Person",
+			name: mainAuthor,
+			url: Astro.site,
+		},
+		datePublished: datePublished || undefined,
+		dateModified: dateModified || undefined,
+		inLanguage: locale || config.site.OG.locale,
+		mainEntityOfPage: formatCanonicalURL(canonicalURL),
+		image: [mainOGImage],
+	},
+]
+
+if (breadcrumbItems.length > 1) {
+	jsonLd.push({
+		"@context": "https://schema.org",
+		"@type": "BreadcrumbList",
+		itemListElement: breadcrumbItems,
+	})
 }
 ---
 
@@ -72,7 +101,7 @@ const jsonLd = {
 <meta property="og:image:height" content="630" />
 <meta property="og:locale" content={locale || config.site.OG.locale} />
 <meta property="og:site_name" content={name || config.site.OG.site_name} />
-<meta name="keywords" content={config.site.OG.keywords || keywords} />
+<meta name="keywords" content={metaKeywords} />
 {
 	type && (
 		<>
@@ -90,9 +119,11 @@ const jsonLd = {
 	indexRobots === false ? (
 		<meta name="robots" content="noindex, nofollow" />
 	) : (
-		<meta name="robots" content="index, follow" />
+		<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
 	)
 }
+<meta name="theme-color" content="#0a0a0a" />
+<meta name="color-scheme" content="light dark" />
 <link type="text/plain" rel="author" href={`${Astro.site}humans.txt`} />
 <link
 	rel="alternate"
@@ -102,6 +133,8 @@ const jsonLd = {
 />
 
 <link rel="sitemap" href="/sitemap-index.xml" />
+<link rel="alternate" hreflang="ru" href={formatCanonicalURL(canonicalURL)} />
+<link rel="alternate" hreflang="x-default" href={formatCanonicalURL(canonicalURL)} />
 
 {
 	config.site.verifications &&

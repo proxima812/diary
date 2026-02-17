@@ -6,23 +6,24 @@ import { Icon } from "astro-icon/components"
 import Container from "./Container.astro"
 ---
 
-<footer class="bg-[var(--bg-surface)] border-t border-[var(--border-soft)] py-8">
+<footer class="mt-8 border-t border-[var(--border-soft)] bg-[var(--bg-surface)] py-10">
 	<Container>
-		<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 md:gap-6 mb-14">
+		<div class="mb-10 grid grid-cols-1 gap-10 md:grid-cols-2 md:gap-6 lg:grid-cols-4">
 			{
 				navigation_footer.map(item => {
 					const columnKey = Object.keys(item).find(key => key.startsWith("colunm"))
 					const links = item[columnKey] || []
 
 					return (
-						<div class="flex flex-col md:items-start items-center">
-							<span class="block mb-4 font-medium text-[var(--text-main)]">{item.category}</span>
+						<div class="flex flex-col items-center md:items-start">
+							<span class="mb-4 block text-sm font-semibold uppercase tracking-wide text-[var(--text-main)]">
+								{item.category}
+							</span>
 							<nav class="flex flex-col gap-3">
 								{links.map(link => (
 									<a
 										class={cn(
-											"text-[var(--text-muted)] md:self-start self-center flex items-center gap-1 transition-colors hover:text-[var(--accent)]",
-											link.style,
+											"md:self-start self-center flex items-center gap-1 text-[var(--text-muted)] transition-colors hover:text-[var(--text-main)]",
 										)}
 										href={link.href}
 										target={link.target}
@@ -37,10 +38,11 @@ import Container from "./Container.astro"
 				})
 			}
 		</div>
-		<div class="md:justify-between flex-wrap gap-3 justify-center flex items-center">
-			<span class="text-[var(--text-muted)]"
-				>&copy; {new Date().getFullYear()} {config.site.url.replace("https://", "")}</span
-			>
+		<div class="flex flex-wrap items-center justify-center gap-3 border-t border-[var(--border-soft)] pt-5 md:justify-between">
+			<span class="text-sm text-[var(--text-muted)]">
+				&copy; {new Date().getFullYear()} {config.site.url.replace("https://", "")}
+			</span>
+			<span class="text-sm text-[var(--text-muted)]">Ежедневники анонимных сообществ</span>
 		</div>
 	</Container>
 </footer>

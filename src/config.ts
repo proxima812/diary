@@ -2,14 +2,16 @@ export const config = {
 	site: {
 		url: "https://diary365.vercel.app",
 		OG: {
-			title: "",
-			description: "",
-			author: "",
+			title: "Ежедневники АА, АН и Ал-Анон",
+			description:
+				"Ежедневные размышления для Анонимных Алкоголиков, Анонимных Наркоманов и Ал-Анон: записи на каждый день и календари.",
+			author: "Diary365",
 			locale: "ru",
-			site_name: "",
+			site_name: "Diary365",
 			// preview
 			defaultImage: "default-ogImage.jpg",
-			keywords: "Ежедневники, ежик аа, ежик ан",
+			keywords:
+				"ежедневники аа, ежедневники ан, ал-анон ежедневник, размышления аа, размышления ан, ежедневник на каждый день",
 		},
 		verifications: [
 			{ name_verification: "yandex-verification", content: "" }, // Подтверждение владения сайтом в Яндекс.Вебмастере

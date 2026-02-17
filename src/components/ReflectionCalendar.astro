@@ -52,7 +52,7 @@ function getFirstDayOffset(month) {
 ---
 
 <section
-	class="rounded-3xl border border-[var(--border-soft)] bg-[var(--bg-surface)] px-3 py-5 shadow-[0_10px_35px_-24px_rgba(133,77,14,0.45)] sm:px-6 sm:py-8"
+	class="rounded-3xl border border-[var(--border-soft)] bg-[var(--bg-surface)] px-3 py-5 shadow-[0_10px_35px_-24px_rgba(0,0,0,0.35)] sm:px-6 sm:py-8"
 >
 	<div class="mb-8 border-b border-[var(--border-soft)] pb-5">
 		<h1 class="text-2xl font-semibold text-[var(--text-main)] sm:text-3xl">{title}</h1>
@@ -77,12 +77,12 @@ function getFirstDayOffset(month) {
 				<section>
 					<div class="flex items-center justify-between mb-3 px-1 sm:px-0">
 						<h2 class="text-lg sm:text-xl font-semibold">📅 {monthNames[month]}</h2>
-						<span class="text-xs sm:text-sm text-zinc-500">{totalDays} дней</span>
+						<span class="text-xs sm:text-sm text-[var(--text-muted)]">{totalDays} дней</span>
 					</div>
 
 					<div class="grid grid-cols-7 gap-1 sm:gap-1.5 justify-items-center">
 						{["Пн", "Вт", "Ср", "Чт", "Пт", "Сб", "Вс"].map(day => (
-							<div class="text-center text-[10px] sm:text-xs text-zinc-500 font-medium mb-1">
+							<div class="text-center text-[10px] sm:text-xs text-[var(--text-muted)] font-medium mb-1">
 								{day}
 							</div>
 						))}
@@ -103,7 +103,7 @@ function getFirstDayOffset(month) {
 							if (!hasEntry) {
 								return (
 									<div
-										class="w-[38px] h-[38px] sm:w-[70px] sm:h-[70px] flex items-center justify-center rounded-xl border border-[var(--border-soft)] bg-[#f5ecd4] text-[13px] sm:text-sm text-[var(--text-muted)] cursor-not-allowed select-none"
+										class="w-[38px] h-[38px] sm:w-[70px] sm:h-[70px] flex items-center justify-center rounded-xl border border-[var(--border-soft)] bg-[var(--bg-soft)] text-[13px] sm:text-sm text-[var(--text-muted)] cursor-not-allowed select-none"
 									>
 										<span>{day}</span>
 									</div>
@@ -116,13 +116,13 @@ function getFirstDayOffset(month) {
 									class={`w-[38px] h-[38px] sm:w-[70px] sm:h-[70px] flex flex-col items-center justify-center rounded-xl border text-[13px] sm:text-sm transition-all select-none
 										${
 											isHoliday
-												? "bg-[var(--accent-soft)] border-[#d4bc86] text-[var(--accent)] font-semibold hover:bg-[#edd9a8]"
-												: "bg-[var(--bg-page)] hover:bg-[#f2e3ba] border-[var(--border-soft)] text-[var(--text-main)]"
+												? "bg-[var(--text-main)] border-[var(--text-main)] text-[var(--bg-page)] font-semibold hover:opacity-85"
+												: "bg-[var(--bg-page)] hover:bg-[var(--bg-soft)] border-[var(--border-soft)] text-[var(--text-main)]"
 										}`}
 								>
 									<span>{day}</span>
 									{isHoliday && (
-										<div class="mt-[2px] w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full bg-[#b4832f]" />
+										<div class="mt-[2px] h-1 w-1 rounded-full bg-[var(--bg-page)] sm:h-1.5 sm:w-1.5" />
 									)}
 								</a>
 							)
