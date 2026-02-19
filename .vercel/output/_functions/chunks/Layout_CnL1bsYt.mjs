@@ -1,4 +1,4 @@
-import { b as createAstro, c as createComponent, m as maybeRenderHead, e as addAttribute, s as spreadAttributes, l as renderSlot, a as renderTemplate, r as renderComponent, F as Fragment, u as unescapeHTML, d as renderScript, n as renderHead } from './astro/server__GzN6Zez.mjs';
+import { b as createAstro, c as createComponent, m as maybeRenderHead, e as addAttribute, s as spreadAttributes, l as renderSlot, a as renderTemplate, r as renderComponent, F as Fragment, u as unescapeHTML, d as renderScript, n as renderHead } from './astro/server_aF7gp8kR.mjs';
 import 'kleur/colors';
 import clsx from 'clsx';
 import { twMerge } from 'tailwind-merge';
@@ -433,10 +433,6 @@ const $$PwaInstallBanner = createComponent(async ($$result, $$props, $$slots) =>
 </button> </div> </div> ${renderScript($$result, "/Users/samgold/Desktop/\u041F\u0440\u043E\u0435\u043A\u0442\u044B/12 \u0448\u0430\u0433\u043E\u0432 - \u0441\u0430\u0438\u0306\u0442\u044B/diary-vercel-app/src/components/PwaInstallBanner.astro?astro&type=script&index=0&lang.ts")}`;
 }, "/Users/samgold/Desktop/\u041F\u0440\u043E\u0435\u043A\u0442\u044B/12 \u0448\u0430\u0433\u043E\u0432 - \u0441\u0430\u0438\u0306\u0442\u044B/diary-vercel-app/src/components/PwaInstallBanner.astro", void 0);
 
-var __freeze$1 = Object.freeze;
-var __defProp$1 = Object.defineProperty;
-var __template$1 = (cooked, raw) => __freeze$1(__defProp$1(cooked, "raw", { value: __freeze$1(cooked.slice()) }));
-var _a$1;
 const $$Astro$1 = createAstro("https://diary365.vercel.app");
 const $$SEO = createComponent(($$result, $$props, $$slots) => {
   const Astro2 = $$result.createAstro($$Astro$1, $$props, $$slots);
@@ -444,7 +440,6 @@ const $$SEO = createComponent(($$result, $$props, $$slots) => {
   const {
     datePublished,
     dateModified,
-    indexRobots,
     name,
     author,
     title,
@@ -469,55 +464,11 @@ const $$SEO = createComponent(($$result, $$props, $$slots) => {
   const mainAuthor = author || config.site.OG.author;
   const mainOGImage = socialImageURL || config.site.OG.defaultImage;
   const metaKeywords = keywords || config.site.OG.keywords;
-  const breadcrumbItems = Astro2.url.pathname.split("/").filter(Boolean).map((segment, idx, arr) => ({
-    "@type": "ListItem",
-    position: idx + 1,
-    name: decodeURIComponent(segment).replaceAll("-", " "),
-    item: new URL(`/${arr.slice(0, idx + 1).join("/")}`, Astro2.site).toString()
-  }));
-  const jsonLd = [
-    {
-      "@context": "https://schema.org",
-      "@type": "WebSite",
-      name: config.site.OG.site_name,
-      url: Astro2.site,
-      inLanguage: locale || config.site.OG.locale,
-      potentialAction: {
-        "@type": "SearchAction",
-        target: `${Astro2.site}?q={search_term_string}`,
-        "query-input": "required name=search_term_string"
-      }
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": type ? "BlogPosting" : "WebPage",
-      headline: mainTitle,
-      description: mainDescription,
-      keywords: metaKeywords,
-      author: {
-        "@type": "Person",
-        name: mainAuthor,
-        url: Astro2.site
-      },
-      datePublished: datePublished || void 0,
-      dateModified: dateModified || void 0,
-      inLanguage: locale || config.site.OG.locale,
-      mainEntityOfPage: formatCanonicalURL(canonicalURL),
-      image: [mainOGImage]
-    }
-  ];
-  if (breadcrumbItems.length > 1) {
-    jsonLd.push({
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      itemListElement: breadcrumbItems
-    });
-  }
-  return renderTemplate(_a$1 || (_a$1 = __template$1(['<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><meta name="generator"', ">", "<title>", '</title><meta name="title"', '><meta name="description"', '><meta name="author"', '><meta property="og:type"', ">", '<meta property="og:title"', '><meta property="og:description"', '><meta property="og:image"', '><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:locale"', '><meta property="og:site_name"', '><meta name="keywords"', ">", '<meta property="twitter:card" content="summary_large_image"><meta property="twitter:url"', '><meta property="twitter:title"', '><meta property="twitter:description"', '><meta property="twitter:image"', ">", '<meta name="theme-color" content="#0a0a0a"><meta name="color-scheme" content="light dark"><link type="text/plain" rel="author"', '><link rel="alternate" type="application/rss+xml" title="RSS \u0446\u0435\u043D\u0442\u0440\u043E\u0432"', '><link rel="sitemap" href="/sitemap-index.xml"><link rel="alternate" hreflang="ru"', '><link rel="alternate" hreflang="x-default"', ">", '<script type="application/ld+json">', "<\/script>"])), addAttribute(Astro2.generator, "content"), canonicalURL && renderTemplate`<link rel="canonical"${addAttribute(formatCanonicalURL(canonicalURL), "href")}>`, mainTitle + " | \u0415\u0436\u0438\u043A \u043D\u0430 \u043A\u0430\u0436\u0434\u044B\u0439 \u0434\u0435\u043D\u044C", addAttribute(mainTitle, "content"), addAttribute(mainDescription, "content"), addAttribute(mainAuthor, "content"), addAttribute(type ? "article" : "website", "content"), canonicalURL && renderTemplate`<meta property="og:url"${addAttribute(formatCanonicalURL(canonicalURL), "content")}>`, addAttribute(mainTitle, "content"), addAttribute(mainDescription, "content"), addAttribute(mainOGImage, "content"), addAttribute(locale || config.site.OG.locale, "content"), addAttribute(name || config.site.OG.site_name, "content"), addAttribute(metaKeywords, "content"), type && renderTemplate`${renderComponent($$result, "Fragment", Fragment, {}, { "default": ($$result2) => renderTemplate`<meta property="article:author"${addAttribute(mainAuthor, "content")}><meta property="article:published_time"${addAttribute(datePublished, "content")}>` })}`, addAttribute(formatCanonicalURL(canonicalURL), "content"), addAttribute(mainTitle, "content"), addAttribute(mainDescription, "content"), addAttribute(mainOGImage, "content"), indexRobots === false ? renderTemplate`<meta name="robots" content="noindex, nofollow">` : renderTemplate`<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">`, addAttribute(`${Astro2.site}humans.txt`, "href"), addAttribute(new URL("centers/rss.xml", Astro2.site), "href"), addAttribute(formatCanonicalURL(canonicalURL), "href"), addAttribute(formatCanonicalURL(canonicalURL), "href"), config.site.verifications && config.site.verifications.some(
+  return renderTemplate`<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><meta name="generator"${addAttribute(Astro2.generator, "content")}>${canonicalURL && renderTemplate`<link rel="canonical"${addAttribute(formatCanonicalURL(canonicalURL), "href")}>`}<title>${mainTitle + " | \u0415\u0436\u0438\u043A \u043D\u0430 \u043A\u0430\u0436\u0434\u044B\u0439 \u0434\u0435\u043D\u044C"}</title><meta name="title"${addAttribute(mainTitle, "content")}><meta name="description"${addAttribute(mainDescription, "content")}><meta name="author"${addAttribute(mainAuthor, "content")}><meta property="og:type"${addAttribute(type ? "article" : "website", "content")}>${canonicalURL && renderTemplate`<meta property="og:url"${addAttribute(formatCanonicalURL(canonicalURL), "content")}>`}<meta property="og:title"${addAttribute(mainTitle, "content")}><meta property="og:description"${addAttribute(mainDescription, "content")}><meta property="og:image"${addAttribute(mainOGImage, "content")}><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:locale"${addAttribute(locale || config.site.OG.locale, "content")}><meta property="og:site_name"${addAttribute(name || config.site.OG.site_name, "content")}><meta name="keywords"${addAttribute(metaKeywords, "content")}>${type && renderTemplate`${renderComponent($$result, "Fragment", Fragment, {}, { "default": ($$result2) => renderTemplate`<meta property="article:author"${addAttribute(mainAuthor, "content")}><meta property="article:published_time"${addAttribute(datePublished, "content")}>` })}`}<meta property="twitter:card" content="summary_large_image"><meta property="twitter:url"${addAttribute(formatCanonicalURL(canonicalURL), "content")}><meta property="twitter:title"${addAttribute(mainTitle, "content")}><meta property="twitter:description"${addAttribute(mainDescription, "content")}><meta property="twitter:image"${addAttribute(mainOGImage, "content")}><meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex"><meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet, noimageindex"><meta name="theme-color" content="#0a0a0a"><meta name="color-scheme" content="light dark"><link type="text/plain" rel="author"${addAttribute(`${Astro2.site}humans.txt`, "href")}>${config.site.verifications && config.site.verifications.some(
     (verification) => verification.name_verification && verification.content
   ) && config.site.verifications.map(
     (verification) => verification.name_verification && verification.content ? renderTemplate`<meta${addAttribute(verification.name_verification, "name")}${addAttribute(verification.content, "content")}>` : null
-  ), unescapeHTML(JSON.stringify(jsonLd)));
+  )}`;
 }, "/Users/samgold/Desktop/\u041F\u0440\u043E\u0435\u043A\u0442\u044B/12 \u0448\u0430\u0433\u043E\u0432 - \u0441\u0430\u0438\u0306\u0442\u044B/diary-vercel-app/src/components/SEO.astro", void 0);
 
 var __freeze = Object.freeze;

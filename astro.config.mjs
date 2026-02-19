@@ -1,5 +1,4 @@
 import mdx from "@astrojs/mdx";
-import sitemap from "@astrojs/sitemap";
 import solid from "@astrojs/solid-js";
 import vercel from "@astrojs/vercel";
 import tailwindcss from "@tailwindcss/vite";
@@ -18,6 +17,6 @@ export default defineConfig({
 		prefetchAll: true,
 	},
 	adapter: vercel(),
-	integrations: [mdx(), sitemap(), icon(), metaTags(), solid()],
+	integrations: [mdx(), icon(), metaTags(), solid()],
 	output: "server",
 });

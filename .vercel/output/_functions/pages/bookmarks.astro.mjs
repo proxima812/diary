@@ -1,9 +1,9 @@
-import { c as createComponent$1, r as renderComponent, a as renderTemplate, m as maybeRenderHead } from '../chunks/astro/server__GzN6Zez.mjs';
+import { c as createComponent$1, r as renderComponent, a as renderTemplate, m as maybeRenderHead } from '../chunks/astro/server_aF7gp8kR.mjs';
 import 'kleur/colors';
 import { ssr, ssrHydrationKey, escape, createComponent, ssrAttribute } from 'solid-js/web';
 import { createSignal, onMount, onCleanup, Show, For } from 'solid-js';
 import { S as SAVED_POSTS_CHANGED_EVENT, b as buildHrefFromId, l as loadSavedPosts } from '../chunks/bookmarks_DoypANTB.mjs';
-import { $ as $$Layout } from '../chunks/Layout_B-fhVToY.mjs';
+import { $ as $$Layout } from '../chunks/Layout_CnL1bsYt.mjs';
 export { renderers } from '../renderers.mjs';
 
 var _tmpl$ = ["<div", ' class="flex justify-center sm:justify-end"><button type="button" class="rounded-xl border border-[var(--border-soft)] bg-[var(--bg-elevated)] px-4 py-2 text-sm text-[var(--text-main)] transition-colors hover:bg-[var(--bg-soft)]">Очистить закладки</button></div>'], _tmpl$2 = ["<div", ' class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">', "</div>"], _tmpl$3 = ["<div", ' class="flex flex-col gap-6">', "</div>"], _tmpl$4 = ["<p", ' class="rounded-2xl border border-[var(--border-soft)] bg-[var(--bg-soft)] p-6 text-center text-[var(--text-muted)]">Пока нет сохраненных ежедневников.</p>'], _tmpl$5 = ["<p", ' class="mt-2 text-sm text-[var(--text-muted)]">', "</p>"], _tmpl$6 = ["<article", ' class="rounded-2xl border border-[var(--border-soft)] bg-[var(--bg-soft)] p-4"><h2 class="text-lg font-semibold text-[var(--text-main)]">', "</h2><!--$-->", '<!--/--><div class="mt-4 flex items-center gap-4 text-sm"><a', ' class="text-[var(--text-main)] underline underline-offset-4">Читать</a><button type="button" class="text-[var(--text-muted)] underline underline-offset-4">Удалить</button></div></article>'];

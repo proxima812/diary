@@ -1,6 +1,6 @@
 import { renderers } from './renderers.mjs';
-import { c as createExports } from './chunks/entrypoint_CUswjunv.mjs';
-import { manifest } from './manifest_BWbSK_tB.mjs';
+import { c as createExports } from './chunks/entrypoint_BUJzoe8p.mjs';
+import { manifest } from './manifest_BTSDMHpF.mjs';
 
 const serverIslandMap = new Map();;
 
@@ -25,18 +25,19 @@ const _page17 = () => import('./pages/an/now.astro.mjs');
 const _page18 = () => import('./pages/an/_month_/_slug_.astro.mjs');
 const _page19 = () => import('./pages/an.astro.mjs');
 const _page20 = () => import('./pages/bookmarks.astro.mjs');
-const _page21 = () => import('./pages/calendar/aa.astro.mjs');
-const _page22 = () => import('./pages/calendar/aa24.astro.mjs');
-const _page23 = () => import('./pages/calendar/aadays.astro.mjs');
-const _page24 = () => import('./pages/calendar/alanon.astro.mjs');
-const _page25 = () => import('./pages/calendar/alanonmm.astro.mjs');
-const _page26 = () => import('./pages/calendar/an.astro.mjs');
-const _page27 = () => import('./pages/calendar.astro.mjs');
-const _page28 = () => import('./pages/disclaimer.astro.mjs');
-const _page29 = () => import('./pages/privacy.astro.mjs');
-const _page30 = () => import('./pages/robots.txt.astro.mjs');
-const _page31 = () => import('./pages/terms.astro.mjs');
-const _page32 = () => import('./pages/index.astro.mjs');
+const _page21 = () => import('./pages/bot.astro.mjs');
+const _page22 = () => import('./pages/calendar/aa.astro.mjs');
+const _page23 = () => import('./pages/calendar/aa24.astro.mjs');
+const _page24 = () => import('./pages/calendar/aadays.astro.mjs');
+const _page25 = () => import('./pages/calendar/alanon.astro.mjs');
+const _page26 = () => import('./pages/calendar/alanonmm.astro.mjs');
+const _page27 = () => import('./pages/calendar/an.astro.mjs');
+const _page28 = () => import('./pages/calendar.astro.mjs');
+const _page29 = () => import('./pages/disclaimer.astro.mjs');
+const _page30 = () => import('./pages/privacy.astro.mjs');
+const _page31 = () => import('./pages/robots.txt.astro.mjs');
+const _page32 = () => import('./pages/terms.astro.mjs');
+const _page33 = () => import('./pages/index.astro.mjs');
 const pageMap = new Map([
     ["node_modules/astro/dist/assets/endpoint/generic.js", _page0],
     ["src/pages/404.astro", _page1],
@@ -59,18 +60,19 @@ const pageMap = new Map([
     ["src/pages/an/[month]/[slug].astro", _page18],
     ["src/pages/an/index.astro", _page19],
     ["src/pages/bookmarks.astro", _page20],
-    ["src/pages/calendar/aa.astro", _page21],
-    ["src/pages/calendar/aa24.astro", _page22],
-    ["src/pages/calendar/aadays.astro", _page23],
-    ["src/pages/calendar/alanon.astro", _page24],
-    ["src/pages/calendar/alanonmm.astro", _page25],
-    ["src/pages/calendar/an.astro", _page26],
-    ["src/pages/calendar/index.astro", _page27],
-    ["src/pages/disclaimer.astro", _page28],
-    ["src/pages/privacy.astro", _page29],
-    ["src/pages/robots.txt.ts", _page30],
-    ["src/pages/terms.astro", _page31],
-    ["src/pages/index.astro", _page32]
+    ["src/pages/bot.astro", _page21],
+    ["src/pages/calendar/aa.astro", _page22],
+    ["src/pages/calendar/aa24.astro", _page23],
+    ["src/pages/calendar/aadays.astro", _page24],
+    ["src/pages/calendar/alanon.astro", _page25],
+    ["src/pages/calendar/alanonmm.astro", _page26],
+    ["src/pages/calendar/an.astro", _page27],
+    ["src/pages/calendar/index.astro", _page28],
+    ["src/pages/disclaimer.astro", _page29],
+    ["src/pages/privacy.astro", _page30],
+    ["src/pages/robots.txt.ts", _page31],
+    ["src/pages/terms.astro", _page32],
+    ["src/pages/index.astro", _page33]
 ]);
 
 const _manifest = Object.assign(manifest, {
@@ -78,10 +80,10 @@ const _manifest = Object.assign(manifest, {
     serverIslandMap,
     renderers,
     actions: () => import('./_noop-actions.mjs'),
-    middleware: () => import('./_noop-middleware.mjs')
+    middleware: () => import('./_astro-internal_middleware.mjs')
 });
 const _args = {
-    "middlewareSecret": "3fd2e337-6093-4f9b-bc50-9c689ffca215",
+    "middlewareSecret": "0d9e6a92-47fa-4b3c-8080-45efa8c8e0d9",
     "skewProtection": false
 };
 const _exports = createExports(_manifest, _args);

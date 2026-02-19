@@ -1,16 +1,11 @@
 export { renderers } from '../renderers.mjs';
 
-const getRobotsTxt = (sitemapURL) => `
+const getRobotsTxt = () => `
 
 User-agent: *
-Allow: /
-
-Sitemap: ${sitemapURL.href}
+Disallow: /
 `;
-const GET = ({ site }) => {
-  const sitemapURL = new URL("sitemap-index.xml", site);
-  return new Response(getRobotsTxt(sitemapURL));
-};
+const GET = () => new Response(getRobotsTxt());
 
 const _page = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
 	__proto__: null,

@@ -1,5 +1,5 @@
 import { generateHydrationScript, renderToStringAsync, renderToString, ssr, createComponent, Suspense, NoHydration } from 'solid-js/web';
-import { f as renderJSX, g as createVNode, h as AstroJSX, i as AstroUserError } from './chunks/astro/server__GzN6Zez.mjs';
+import { f as renderJSX, g as createVNode, h as AstroJSX, i as AstroUserError } from './chunks/astro/server_aF7gp8kR.mjs';
 import 'kleur/colors';
 import 'clsx';
 

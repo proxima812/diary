@@ -1,12 +1,6 @@
-import { N as NOOP_MIDDLEWARE_HEADER, R as REDIRECT_STATUS_CODES, A as AstroError, k as ActionsReturnedInvalidDataError, D as DEFAULT_404_COMPONENT } from './astro/server__GzN6Zez.mjs';
 import { parse, stringify } from 'devalue';
+import { R as REDIRECT_STATUS_CODES, A as AstroError, j as ActionsReturnedInvalidDataError, D as DEFAULT_404_COMPONENT } from './astro/server_aF7gp8kR.mjs';
 import { escape } from 'html-escaper';
-
-const NOOP_MIDDLEWARE_FN = async (_ctx, next) => {
-  const response = await next();
-  response.headers.set(NOOP_MIDDLEWARE_HEADER, "true");
-  return response;
-};
 
 const ACTION_QUERY_PARAMS$1 = {
   actionName: "_action"};
@@ -336,4 +330,4 @@ const default404Instance = {
   default: default404Page
 };
 
-export { ActionError as A, DEFAULT_404_ROUTE as D, NOOP_MIDDLEWARE_FN as N, ACTION_RPC_ROUTE_PATTERN as a, ACTION_QUERY_PARAMS as b, default404Instance as c, deserializeActionResult as d, ensure404Route as e, getActionQueryString as g, serializeActionResult as s };
+export { ActionError as A, DEFAULT_404_ROUTE as D, deserializeActionResult as a, ACTION_RPC_ROUTE_PATTERN as b, ACTION_QUERY_PARAMS as c, default404Instance as d, ensure404Route as e, getActionQueryString as g, serializeActionResult as s };

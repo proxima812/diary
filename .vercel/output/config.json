@@ -76,6 +76,10 @@
 			"dest": "_render"
 		},
 		{
+			"src": "^/bot/?$",
+			"dest": "_render"
+		},
+		{
 			"src": "^/calendar/aa/?$",
 			"dest": "_render"
 		},

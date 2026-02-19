@@ -1,4 +1,4 @@
-import { c as createComponent, m as maybeRenderHead, a as renderTemplate } from './astro/server__GzN6Zez.mjs';
+import { c as createComponent, m as maybeRenderHead, a as renderTemplate } from './astro/server_aF7gp8kR.mjs';
 import 'kleur/colors';
 import 'clsx';
 import { ssr, ssrHydrationKey, ssrAttribute, escape } from 'solid-js/web';
